@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 01 – HTML Básico</title>
+  </head>
+  <body>
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <header>
+      <h1>Minha Primeira Página Web</h1>
+      <p>Bem-vindo à Aula 01 de HTML!</p>
+    </header>
+
+    <!-- NAVEGAÇÃO -->
+    <nav>
+      <a href="#sobre">Sobre</a> |
+      <a href="#hobbies">Hobbies</a> |
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+      <!-- SEÇÃO SOBRE -->
+      <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>
+          Olá! Meu nome é <strong>João Silva</strong> e estou aprendendo
+          programação web. Tenho <em>25 anos</em> e moro em São Paulo, Brasil.
+        </p>
+        <p>
+          Este é o meu primeiro arquivo HTML. Estou muito animado para aprender
+          mais sobre desenvolvimento web!
+        </p>
+      </section>
+
+      <!-- SEÇÃO HOBBIES -->
+      <section id="hobbies">
+        <h2>Meus Hobbies</h2>
+
+        <h3>Favoritos (lista não ordenada)</h3>
+        <ul>
+          <li>Programação</li>
+          <li>Leitura</li>
+          <li>Música</li>
+          <li>Jogos eletrônicos</li>
+        </ul>
+
+        <h3>Minhas Metas (lista ordenada)</h3>
+        <ol>
+          <li>Aprender HTML</li>
+          <li>Aprender CSS</li>
+          <li>Aprender JavaScript</li>
+          <li>Criar meu primeiro projeto</li>
+        </ol>
+      </section>
+
+      <!-- SEÇÃO LINKS -->
+      <section id="links">
+        <h2>Links Úteis</h2>
+        <ul>
+          <li>
+            <a href="https://developer.mozilla.org/pt-BR/" target="_blank">
+              MDN Web Docs (em português)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.w3schools.com" target="_blank">
+              W3Schools
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com" target="_blank">
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- SEÇÃO IMAGEM -->
+      <section id="imagem">
+        <h2>Imagem de Exemplo</h2>
+        <img
+          src="https://via.placeholder.com/400x200?text=Minha+Imagem"
+          alt="Imagem de exemplo com texto 'Minha Imagem'"
+          width="400"
+          height="200"
+        />
+        <p>
+          <small>Dica: substitua o src acima pelo caminho de uma imagem real!</small>
+        </p>
+      </section>
+
+      <!-- SEÇÃO FORMULÁRIO -->
+      <section id="contato">
+        <h2>Formulário de Contato</h2>
+        <form>
+          <div>
+            <label for="nome">Nome:</label><br />
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Digite seu nome"
+            />
+          </div>
+          <br />
+          <div>
+            <label for="email">E-mail:</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Digite seu e-mail"
+            />
+          </div>
+          <br />
+          <div>
+            <label for="mensagem">Mensagem:</label><br />
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows="4"
+              cols="40"
+              placeholder="Escreva sua mensagem aqui"
+            ></textarea>
+          </div>
+          <br />
+          <button type="submit">Enviar Mensagem</button>
+        </form>
+      </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+      <p>&copy; 2024 – Minha Primeira Página HTML</p>
+    </footer>
+
+  </body>
+</html>
