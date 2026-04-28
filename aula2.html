@@ -96,6 +96,37 @@
     .nav-aulas a:hover { background: #3498db; }
     .nav-aulas a.proximo { background: #3498db; }
     .nav-aulas a.proximo:hover { background: #2980b9; }
+
+    /* ===== RESPONSIVO: TABLET E CELULAR ===== */
+    @media (max-width: 768px) {
+      header { padding: 30px 16px 22px; }
+      header h1 { font-size: 1.4em; }
+      header p  { font-size: .95em; }
+      header .badges { gap: 6px; }
+      header .badge { font-size: .8em; padding: 4px 10px; }
+
+      main { margin: 20px auto; padding: 0 14px 40px; }
+
+      .card { padding: 20px 18px; }
+      .card h2 { font-size: 1.1em; }
+
+      .timeline li { flex-direction: column; gap: 6px; }
+      .timeline .tempo { min-width: auto; align-self: flex-start; }
+
+      pre { font-size: .82em; padding: 14px; }
+
+      table { font-size: .85em; }
+      th, td { padding: 8px 10px; }
+
+      .nav-aulas a { flex: 1; text-align: center; padding: 12px 10px; font-size: .9em; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.15em; }
+      .card h2 { font-size: 1em; }
+      pre { font-size: .75em; }
+      table { display: block; overflow-x: auto; }
+    }
   </style>
 </head>
 <body>
