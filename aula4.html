@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aula 4 — Estilização com CSS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #2d3748; line-height: 1.7; }
+
+    header {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      color: white;
+      padding: 40px 20px 30px;
+      text-align: center;
+    }
+    header .nav-back { text-align: left; margin-bottom: 10px; }
+    header .nav-back a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .9em; }
+    header .nav-back a:hover { color: white; }
+    header h1 { font-size: 1.9em; margin-bottom: 6px; }
+    header p  { opacity: .85; }
+    header .badges { margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    header .badge { background: rgba(255,255,255,.2); padding: 5px 14px; border-radius: 20px; font-size: .85em; }
+
+    main { max-width: 860px; margin: 36px auto; padding: 0 20px 60px; }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    .card h2 { color: #2c3e50; margin-bottom: 16px; font-size: 1.25em; padding-bottom: 10px; border-bottom: 3px solid #3498db; }
+    .card h3 { color: #3498db; margin: 18px 0 8px; font-size: 1.05em; }
+    .card p  { margin-bottom: 10px; }
+    .card ul, .card ol { padding-left: 22px; margin-bottom: 10px; }
+    .card li { margin-bottom: 6px; }
+
+    .timeline { list-style: none; padding: 0; }
+    .timeline li { display: flex; gap: 16px; margin-bottom: 14px; align-items: flex-start; }
+    .timeline .tempo {
+      flex-shrink: 0; background: #3498db; color: white;
+      font-size: .8em; font-weight: 700;
+      padding: 4px 10px; border-radius: 20px;
+      min-width: 76px; text-align: center; margin-top: 2px;
+    }
+    .timeline .tempo.pratica { background: #27ae60; }
+
+    pre {
+      background: #1e272e; color: #dfe6e9;
+      border-radius: 8px; padding: 20px;
+      overflow-x: auto; font-size: .92em;
+      margin: 14px 0; line-height: 1.6;
+    }
+    code { font-family: 'Courier New', monospace; }
+
+    .css-selector { color: #fd79a8; }
+    .css-prop     { color: #74b9ff; }
+    .css-value    { color: #55efc4; }
+    .css-comment  { color: #636e72; font-style: italic; }
+    .css-punct    { color: #dfe6e9; }
+
+    .callout {
+      border-left: 4px solid #3498db;
+      background: #ebf8ff;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+    }
+    .callout.verde { border-color: #27ae60; background: #f0fff4; }
+    .callout.amarelo { border-color: #f39c12; background: #fffbf0; }
+
+    .cores-demo {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 14px 0;
+    }
+    .cor-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .9em;
+    }
+    .cor-box {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,0,0,.1);
+      flex-shrink: 0;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: .93em; }
+    th { background: #2c3e50; color: white; padding: 10px 14px; text-align: left; }
+    td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #f7fafc; }
+
+    .nav-aulas {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-aulas a {
+      background: #2c3e50;
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .95em;
+    }
+    .nav-aulas a:hover { background: #3498db; }
+    .nav-aulas a.concluido { background: #27ae60; }
+    .nav-aulas a.concluido:hover { background: #219150; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-back"><a href="index.html">← Voltar ao Plano de Aulas</a></div>
+  <h1>Aula 4 — Estilização com CSS 🎨</h1>
+  <p>Transformar o HTML básico em um portfólio visualmente atraente.</p>
+  <div class="badges">
+    <span class="badge">⏱ 50 minutos</span>
+    <span class="badge">🎯 Nível Iniciante</span>
+    <span class="badge">🛠 Prática: criar styles.css completo</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- CRONOGRAMA -->
+  <div class="card">
+    <h2>⏱ Cronograma da Aula</h2>
+    <ul class="timeline">
+      <li>
+        <span class="tempo">00:00–05:00</span>
+        <div><strong>Revisão</strong> — Verificar o HTML completo de todos. Abrir no navegador.</div>
+      </li>
+      <li>
+        <span class="tempo">05:00–15:00</span>
+        <div><strong>Teoria:</strong> O que é CSS? Seletores, propriedades, valores. Como vincular ao HTML.</div>
+      </li>
+      <li>
+        <span class="tempo pratica">15:00–25:00</span>
+        <div>🖊 <strong>Prática</strong> — Reset, body e estilos do header e nav.</div>
+      </li>
+      <li>
+        <span class="tempo pratica">25:00–40:00</span>
+        <div>🖊 <strong>Prática</strong> — Estilizar sections, imagem e formulário.</div>
+      </li>
+      <li>
+        <span class="tempo pratica">40:00–50:00</span>
+        <div>🖊 <strong>Personalização final</strong> — Trocar cores, fontes e personalizar com estilo próprio.</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- O QUE É CSS -->
+  <div class="card">
+    <h2>📖 Teoria: O que é CSS? (10 min)</h2>
+    <p><strong>CSS</strong> (Cascading Style Sheets) é a linguagem que <em>estiliza</em> o HTML. Enquanto o HTML define <em>o que</em> é cada elemento, o CSS define <em>como ele aparece</em>: cor, tamanho, espaçamento, fonte, posição.</p>
+
+    <h3>Anatomia de uma regra CSS</h3>
+    <pre><code><span class="css-comment">/* seletor { propriedade: valor; } */</span>
+
+<span class="css-selector">h1</span> <span class="css-punct">{</span>
+  <span class="css-prop">color</span><span class="css-punct">:</span> <span class="css-value">#2c3e50</span><span class="css-punct">;</span>
+  <span class="css-prop">font-size</span><span class="css-punct">:</span> <span class="css-value">2.5em</span><span class="css-punct">;</span>
+<span class="css-punct">}</span></code></pre>
+
+    <table>
+      <tr><th>Conceito</th><th>Descrição</th><th>Exemplo</th></tr>
+      <tr><td><strong>Seletor</strong></td><td>Escolhe qual elemento estilizar</td><td><code>h1</code>, <code>#sobre</code>, <code>.nav</code></td></tr>
+      <tr><td><strong>Propriedade</strong></td><td>O que você quer mudar</td><td><code>color</code>, <code>font-size</code>, <code>margin</code></td></tr>
+      <tr><td><strong>Valor</strong></td><td>O novo valor da propriedade</td><td><code>#3498db</code>, <code>2em</code>, <code>center</code></td></tr>
+    </table>
+
+    <div class="callout">
+      Crie um arquivo <code>styles.css</code> na mesma pasta do <code>index.html</code>. Ele já está vinculado via <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code> no <code>&lt;head&gt;</code>.
+    </div>
+  </div>
+
+  <!-- RESET + BODY + HEADER -->
+  <div class="card">
+    <h2>🖊 Prática: Reset, Body e Header (10 min)</h2>
+    <p>No arquivo <code>styles.css</code>, comece com:</p>
+
+    <pre><code><span class="css-comment">/* ===== RESET BÁSICO ===== */</span>
+<span class="css-selector">*</span> <span class="css-punct">{</span>
+  <span class="css-prop">margin</span><span class="css-punct">:</span> <span class="css-value">0</span><span class="css-punct">;</span>
+  <span class="css-prop">padding</span><span class="css-punct">:</span> <span class="css-value">0</span><span class="css-punct">;</span>
+  <span class="css-prop">box-sizing</span><span class="css-punct">:</span> <span class="css-value">border-box</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-comment">/* ===== CORPO DA PÁGINA ===== */</span>
+<span class="css-selector">body</span> <span class="css-punct">{</span>
+  <span class="css-prop">font-family</span><span class="css-punct">:</span> <span class="css-value">Arial, sans-serif</span><span class="css-punct">;</span>
+  <span class="css-prop">background-color</span><span class="css-punct">:</span> <span class="css-value">#f4f4f4</span><span class="css-punct">;</span>
+  <span class="css-prop">color</span><span class="css-punct">:</span> <span class="css-value">#333</span><span class="css-punct">;</span>
+  <span class="css-prop">line-height</span><span class="css-punct">:</span> <span class="css-value">1.6</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-comment">/* ===== CABEÇALHO ===== */</span>
+<span class="css-selector">header</span> <span class="css-punct">{</span>
+  <span class="css-prop">background-color</span><span class="css-punct">:</span> <span class="css-value">#2c3e50</span><span class="css-punct">;</span>
+  <span class="css-prop">color</span><span class="css-punct">:</span> <span class="css-value">white</span><span class="css-punct">;</span>
+  <span class="css-prop">text-align</span><span class="css-punct">:</span> <span class="css-value">center</span><span class="css-punct">;</span>
+  <span class="css-prop">padding</span><span class="css-punct">:</span> <span class="css-value">40px 20px</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-selector">header h1</span> <span class="css-punct">{</span>
+  <span class="css-prop">font-size</span><span class="css-punct">:</span> <span class="css-value">2.5em</span><span class="css-punct">;</span>
+  <span class="css-prop">margin-bottom</span><span class="css-punct">:</span> <span class="css-value">10px</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-comment">/* ===== MENU DE NAVEGAÇÃO ===== */</span>
+<span class="css-selector">nav</span> <span class="css-punct">{</span>
+  <span class="css-prop">background-color</span><span class="css-punct">:</span> <span class="css-value">#3498db</span><span class="css-punct">;</span>
+  <span class="css-prop">padding</span><span class="css-punct">:</span> <span class="css-value">15px</span><span class="css-punct">;</span>
+  <span class="css-prop">text-align</span><span class="css-punct">:</span> <span class="css-value">center</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-selector">nav ul</span> <span class="css-punct">{</span>
+  <span class="css-prop">list-style</span><span class="css-punct">:</span> <span class="css-value">none</span><span class="css-punct">;</span>
+  <span class="css-prop">display</span><span class="css-punct">:</span> <span class="css-value">flex</span><span class="css-punct">;</span>
+  <span class="css-prop">justify-content</span><span class="css-punct">:</span> <span class="css-value">center</span><span class="css-punct">;</span>
+  <span class="css-prop">gap</span><span class="css-punct">:</span> <span class="css-value">20px</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-selector">nav a</span> <span class="css-punct">{</span>
+  <span class="css-prop">color</span><span class="css-punct">:</span> <span class="css-value">white</span><span class="css-punct">;</span>
+  <span class="css-prop">text-decoration</span><span class="css-punct">:</span> <span class="css-value">none</span><span class="css-punct">;</span>
+  <span class="css-prop">font-weight</span><span class="css-punct">:</span> <span class="css-value">bold</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-selector">nav a:hover</span> <span class="css-punct">{</span>
+  <span class="css-prop">text-decoration</span><span class="css-punct">:</span> <span class="css-value">underline</span><span class="css-punct">;</span>
+<span class="css-punct">}</span></code></pre>
+
+    <div class="callout amarelo">
+      <strong>O que é <code>*</code>?</strong> É o seletor universal — aplica estilos em <em>todos</em> os elementos. Usamos para zerar margens e paddings padrão que os navegadores adicionam.
+    </div>
+  </div>
+
+  <!-- SECTIONS + FORM -->
+  <div class="card">
+    <h2>🖊 Prática: Seções, Imagem e Formulário (15 min)</h2>
+
+    <pre><code><span class="css-comment">/* ===== SEÇÕES (CARDS) ===== */</span>
+<span class="css-selector">section</span> <span class="css-punct">{</span>
+  <span class="css-prop">max-width</span><span class="css-punct">:</span> <span class="css-value">800px</span><span class="css-punct">;</span>
+  <span class="css-prop">margin</span><span class="css-punct">:</span> <span class="css-value">40px auto</span><span class="css-punct">;</span>
+  <span class="css-prop">background</span><span class="css-punct">:</span> <span class="css-value">white</span><span class="css-punct">;</span>
+  <span class="css-prop">padding</span><span class="css-punct">:</span> <span class="css-value">30px</span><span class="css-punct">;</span>
+  <span class="css-prop">border-radius</span><span class="css-punct">:</span> <span class="css-value">8px</span><span class="css-punct">;</span>
+  <span class="css-prop">box-shadow</span><span class="css-punct">:</span> <span class="css-value">0 2px 10px rgba(0,0,0,0.1)</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-selector">section h2</span> <span class="css-punct">{</span>
+  <span class="css-prop">color</span><span class="css-punct">:</span> <span class="css-value">#2c3e50</span><span class="css-punct">;</span>
+  <span class="css-prop">border-bottom</span><span class="css-punct">:</span> <span class="css-value">3px solid #3498db</span><span class="css-punct">;</span>
+  <span class="css-prop">padding-bottom</span><span class="css-punct">:</span> <span class="css-value">8px</span><span class="css-punct">;</span>
+  <span class="css-prop">margin-bottom</span><span class="css-punct">:</span> <span class="css-value">20px</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-selector">section img</span> <span class="css-punct">{</span>
+  <span class="css-prop">border-radius</span><span class="css-punct">:</span> <span class="css-value">50%</span><span class="css-punct">;</span>       <span class="css-comment">/* foto redonda! */</span>
+  <span class="css-prop">display</span><span class="css-punct">:</span> <span class="css-value">block</span><span class="css-punct">;</span>
+  <span class="css-prop">margin</span><span class="css-punct">:</span> <span class="css-value">0 auto 20px auto</span><span class="css-punct">;</span>  <span class="css-comment">/* centraliza */</span>
+  <span class="css-prop">border</span><span class="css-punct">:</span> <span class="css-value">4px solid #3498db</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-comment">/* ===== FORMULÁRIO ===== */</span>
+<span class="css-selector">form input,
+form textarea</span> <span class="css-punct">{</span>
+  <span class="css-prop">width</span><span class="css-punct">:</span> <span class="css-value">100%</span><span class="css-punct">;</span>
+  <span class="css-prop">padding</span><span class="css-punct">:</span> <span class="css-value">10px</span><span class="css-punct">;</span>
+  <span class="css-prop">margin</span><span class="css-punct">:</span> <span class="css-value">10px 0</span><span class="css-punct">;</span>
+  <span class="css-prop">border</span><span class="css-punct">:</span> <span class="css-value">1px solid #ccc</span><span class="css-punct">;</span>
+  <span class="css-prop">border-radius</span><span class="css-punct">:</span> <span class="css-value">4px</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-selector">form button</span> <span class="css-punct">{</span>
+  <span class="css-prop">background-color</span><span class="css-punct">:</span> <span class="css-value">#3498db</span><span class="css-punct">;</span>
+  <span class="css-prop">color</span><span class="css-punct">:</span> <span class="css-value">white</span><span class="css-punct">;</span>
+  <span class="css-prop">border</span><span class="css-punct">:</span> <span class="css-value">none</span><span class="css-punct">;</span>
+  <span class="css-prop">padding</span><span class="css-punct">:</span> <span class="css-value">10px 20px</span><span class="css-punct">;</span>
+  <span class="css-prop">cursor</span><span class="css-punct">:</span> <span class="css-value">pointer</span><span class="css-punct">;</span>
+  <span class="css-prop">border-radius</span><span class="css-punct">:</span> <span class="css-value">4px</span><span class="css-punct">;</span>
+  <span class="css-prop">font-size</span><span class="css-punct">:</span> <span class="css-value">1em</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-selector">form button:hover</span> <span class="css-punct">{</span>
+  <span class="css-prop">background-color</span><span class="css-punct">:</span> <span class="css-value">#2980b9</span><span class="css-punct">;</span>
+<span class="css-punct">}</span>
+
+<span class="css-comment">/* ===== RODAPÉ ===== */</span>
+<span class="css-selector">footer</span> <span class="css-punct">{</span>
+  <span class="css-prop">background-color</span><span class="css-punct">:</span> <span class="css-value">#2c3e50</span><span class="css-punct">;</span>
+  <span class="css-prop">color</span><span class="css-punct">:</span> <span class="css-value">white</span><span class="css-punct">;</span>
+  <span class="css-prop">text-align</span><span class="css-punct">:</span> <span class="css-value">center</span><span class="css-punct">;</span>
+  <span class="css-prop">padding</span><span class="css-punct">:</span> <span class="css-value">20px</span><span class="css-punct">;</span>
+  <span class="css-prop">margin-top</span><span class="css-punct">:</span> <span class="css-value">40px</span><span class="css-punct">;</span>
+<span class="css-punct">}</span></code></pre>
+  </div>
+
+  <!-- PERSONALIZAÇÃO -->
+  <div class="card">
+    <h2>🎨 Personalização Final (10 min)</h2>
+    <p>Faça o portfólio seu! Experimente mudar:</p>
+
+    <h3>Paleta de cores sugerida</h3>
+    <div class="cores-demo">
+      <div class="cor-item"><div class="cor-box" style="background:#2c3e50"></div><code>#2c3e50</code> — Fundo escuro</div>
+      <div class="cor-item"><div class="cor-box" style="background:#3498db"></div><code>#3498db</code> — Azul destaque</div>
+      <div class="cor-item"><div class="cor-box" style="background:#27ae60"></div><code>#27ae60</code> — Verde</div>
+      <div class="cor-item"><div class="cor-box" style="background:#e74c3c"></div><code>#e74c3c</code> — Vermelho</div>
+      <div class="cor-item"><div class="cor-box" style="background:#8e44ad"></div><code>#8e44ad</code> — Roxo</div>
+      <div class="cor-item"><div class="cor-box" style="background:#f39c12"></div><code>#f39c12</code> — Laranja</div>
+    </div>
+
+    <h3>Propriedades para experimentar</h3>
+    <table>
+      <tr><th>Propriedade</th><th>Exemplo</th><th>Efeito</th></tr>
+      <tr><td><code>font-family</code></td><td><code>'Georgia', serif</code></td><td>Muda a fonte</td></tr>
+      <tr><td><code>background-color</code></td><td><code>#1a1a2e</code></td><td>Fundo escuro (dark mode)</td></tr>
+      <tr><td><code>border-radius</code></td><td><code>20px</code></td><td>Cantos mais arredondados</td></tr>
+      <tr><td><code>letter-spacing</code></td><td><code>2px</code></td><td>Espaçamento entre letras</td></tr>
+      <tr><td><code>transition</code></td><td><code>all 0.3s ease</code></td><td>Animação suave no hover</td></tr>
+    </table>
+
+    <div class="callout verde">
+      <strong>Desafio extra:</strong> Adicione uma <strong>fonte do Google Fonts</strong>! Cole no <code>&lt;head&gt;</code>:
+      <br><code>&lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet"&gt;</code>
+      <br>Depois use no CSS: <code>font-family: 'Poppins', sans-serif;</code>
+    </div>
+  </div>
+
+  <!-- PARABÉNS -->
+  <div class="card" style="border-left: 4px solid #27ae60; background: #f0fff4;">
+    <h2 style="border-color: #27ae60;">🎉 Parabéns! Curso Concluído!</h2>
+    <p>Você criou do zero uma página de apresentação pessoal usando HTML e CSS! Seu portfólio já pode ser publicado online.</p>
+    <h3>Próximos passos sugeridos</h3>
+    <ul>
+      <li>📤 Publique seu portfólio no <strong>GitHub Pages</strong> (gratuito)</li>
+      <li>💡 Aprenda <strong>JavaScript</strong> para adicionar interatividade</li>
+      <li>📐 Aprenda <strong>Flexbox e Grid CSS</strong> para layouts avançados</li>
+      <li>📱 Estude <strong>CSS responsivo</strong> com media queries</li>
+    </ul>
+  </div>
+
+  <div class="nav-aulas">
+    <a href="aula3.html">← Aula 3</a>
+    <a class="concluido" href="index.html">✓ Concluído — Ver Plano</a>
+  </div>
+
+</main>
+</body>
+</html>

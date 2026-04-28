@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aula 1 — Introdução ao HTML e Estrutura Base</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #2d3748; line-height: 1.7; }
+
+    header {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      color: white;
+      padding: 40px 20px 30px;
+      text-align: center;
+    }
+    header .nav-back { text-align: left; margin-bottom: 10px; }
+    header .nav-back a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .9em; }
+    header .nav-back a:hover { color: white; }
+    header h1 { font-size: 1.9em; margin-bottom: 6px; }
+    header p  { opacity: .85; }
+    header .badges { margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    header .badge {
+      background: rgba(255,255,255,.2);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: .85em;
+    }
+
+    main { max-width: 860px; margin: 36px auto; padding: 0 20px 60px; }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    .card h2 { color: #2c3e50; margin-bottom: 16px; font-size: 1.25em; padding-bottom: 10px; border-bottom: 3px solid #3498db; }
+    .card h3 { color: #3498db; margin: 18px 0 8px; font-size: 1.05em; }
+    .card p  { margin-bottom: 10px; }
+    .card ul, .card ol { padding-left: 22px; margin-bottom: 10px; }
+    .card li { margin-bottom: 6px; }
+
+    .timeline { list-style: none; padding: 0; }
+    .timeline li {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .timeline .tempo {
+      flex-shrink: 0;
+      background: #3498db;
+      color: white;
+      font-size: .8em;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      min-width: 76px;
+      text-align: center;
+      margin-top: 2px;
+    }
+    .timeline .tempo.pratica { background: #27ae60; }
+
+    pre {
+      background: #1e272e;
+      color: #dfe6e9;
+      border-radius: 8px;
+      padding: 20px;
+      overflow-x: auto;
+      font-size: .92em;
+      margin: 14px 0;
+      line-height: 1.6;
+    }
+    code { font-family: 'Courier New', monospace; }
+    pre code { color: #dfe6e9; }
+
+    .tag   { color: #74b9ff; }
+    .attr  { color: #fdcb6e; }
+    .value { color: #55efc4; }
+    .comment { color: #636e72; font-style: italic; }
+
+    .callout {
+      border-left: 4px solid #3498db;
+      background: #ebf8ff;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+    }
+    .callout.verde { border-color: #27ae60; background: #f0fff4; }
+    .callout.amarelo { border-color: #f39c12; background: #fffbf0; }
+
+    .glossario { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; }
+    .glossario .termo { font-weight: 700; color: #2c3e50; white-space: nowrap; }
+
+    .nav-aulas {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-aulas a {
+      background: #2c3e50;
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .95em;
+    }
+    .nav-aulas a:hover { background: #3498db; }
+    .nav-aulas a.proximo { background: #3498db; }
+    .nav-aulas a.proximo:hover { background: #2980b9; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-back"><a href="index.html">← Voltar ao Plano de Aulas</a></div>
+  <h1>Aula 1 — Introdução ao HTML e Estrutura Base</h1>
+  <p>Você vai entender o que é HTML e criar seu primeiro arquivo do zero.</p>
+  <div class="badges">
+    <span class="badge">⏱ 50 minutos</span>
+    <span class="badge">🎯 Nível Iniciante</span>
+    <span class="badge">🛠 Prática: criar index.html</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- CRONOGRAMA -->
+  <div class="card">
+    <h2>⏱ Cronograma da Aula</h2>
+    <ul class="timeline">
+      <li>
+        <span class="tempo">00:00–10:00</span>
+        <div><strong>O que é HTML?</strong> — Motivação, exemplos de sites, o que vamos construir.</div>
+      </li>
+      <li>
+        <span class="tempo">10:00–15:00</span>
+        <div><strong>Ferramentas necessárias</strong> — VS Code, extensão Live Server, navegador.</div>
+      </li>
+      <li>
+        <span class="tempo">15:00–35:00</span>
+        <div><strong>Teoria: Estrutura base HTML</strong> — DOCTYPE, html, head, body, meta, title, link.</div>
+      </li>
+      <li>
+        <span class="tempo pratica">35:00–50:00</span>
+        <div>🖊 <strong>Prática</strong> — Criar <code>index.html</code>, digitar a estrutura base e abrir no navegador.</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- O QUE É HTML -->
+  <div class="card">
+    <h2>🌐 O que é HTML? (10 min)</h2>
+    <p><strong>HTML</strong> (HyperText Markup Language) é a linguagem de <em>marcação</em> que estrutura o conteúdo das páginas web. Ele não é uma linguagem de programação — ele descreve <strong>o que</strong> cada coisa é: título, parágrafo, imagem, link.</p>
+    <div class="callout">
+      <strong>Analogia:</strong> HTML é como o esqueleto do site. CSS é a roupa e JavaScript é o movimento.
+    </div>
+    <h3>O que vamos construir?</h3>
+    <ul>
+      <li>Um <strong>cabeçalho</strong> com nome e profissão</li>
+      <li>Um <strong>menu de navegação</strong> funcional</li>
+      <li>Seção <strong>"Sobre Mim"</strong> com foto e biografia</li>
+      <li>Lista de <strong>habilidades</strong></li>
+      <li><strong>Formulário de contato</strong></li>
+      <li><strong>Rodapé</strong></li>
+    </ul>
+  </div>
+
+  <!-- FERRAMENTAS -->
+  <div class="card">
+    <h2>🛠 Ferramentas Necessárias (5 min)</h2>
+    <ul>
+      <li><strong>VS Code</strong> — Editor de código (gratuito) → <em>code.visualstudio.com</em></li>
+      <li><strong>Extensão Live Server</strong> — Recarrega o navegador automaticamente ao salvar o arquivo</li>
+      <li><strong>Navegador</strong> — Chrome, Edge ou Firefox</li>
+    </ul>
+    <div class="callout verde">
+      <strong>Como instalar Live Server:</strong> No VS Code, clique no ícone de extensões (Ctrl+Shift+X), pesquise "Live Server" e instale.
+    </div>
+  </div>
+
+  <!-- TEORIA -->
+  <div class="card">
+    <h2>📖 Teoria: Estrutura Base HTML (20 min)</h2>
+    <p>Todo arquivo HTML começa com uma estrutura padrão. Crie um arquivo chamado <code>index.html</code> e observe cada parte:</p>
+
+    <pre><code><span class="comment">&lt;!-- Estrutura Base HTML --&gt;</span>
+<span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="value">"pt-br"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="value">"UTF-8"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="value">"viewport"</span> <span class="attr">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>Meu Portfólio<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span> <span class="attr">href</span>=<span class="value">"styles.css"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+  <span class="comment">&lt;!-- Todo o conteúdo visível vai aqui --&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+
+    <h3>🔍 Explicando cada tag</h3>
+    <div class="glossario">
+      <span class="termo"><code>&lt;!DOCTYPE html&gt;</code></span>
+      <span>Avisa ao navegador que este é um documento HTML5 moderno.</span>
+
+      <span class="termo"><code>&lt;html lang="pt-br"&gt;</code></span>
+      <span>Raiz de todo o documento. O atributo <code>lang</code> define o idioma (ajuda no SEO e acessibilidade).</span>
+
+      <span class="termo"><code>&lt;head&gt;</code></span>
+      <span>Configurações da página que <strong>não aparecem</strong> para o usuário (metadados, links de CSS).</span>
+
+      <span class="termo"><code>&lt;meta charset&gt;</code></span>
+      <span>Permite usar acentos e caracteres especiais (ç, ã, é).</span>
+
+      <span class="termo"><code>&lt;meta viewport&gt;</code></span>
+      <span>Garante que o site funcione bem em celulares (responsividade).</span>
+
+      <span class="termo"><code>&lt;title&gt;</code></span>
+      <span>Texto que aparece na aba do navegador.</span>
+
+      <span class="termo"><code>&lt;link&gt;</code></span>
+      <span>Conecta o HTML ao arquivo de estilos CSS.</span>
+
+      <span class="termo"><code>&lt;body&gt;</code></span>
+      <span>Corpo da página. <strong>Tudo que o usuário vê</strong> (textos, imagens, botões) fica aqui.</span>
+    </div>
+
+    <div class="callout amarelo" style="margin-top:16px">
+      <strong>Regra de ouro:</strong> Toda tag que abre deve ser fechada: <code>&lt;h1&gt;</code>...<code>&lt;/h1&gt;</code>. Exceções: <code>&lt;meta&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>.
+    </div>
+  </div>
+
+  <!-- PRÁTICA -->
+  <div class="card">
+    <h2>🖊 Prática — Criar index.html (15 min)</h2>
+    <ol>
+      <li>Abra o <strong>VS Code</strong> e crie uma pasta chamada <code>meu-portfolio</code>.</li>
+      <li>Crie um arquivo <code>index.html</code> dentro da pasta.</li>
+      <li>Digite <code>!</code> e pressione <kbd>Tab</kbd> para gerar a estrutura automaticamente (atalho Emmet).</li>
+      <li>Altere o <code>lang</code> para <code>"pt-br"</code> e o <code>&lt;title&gt;</code> para <em>"Meu Portfólio"</em>.</li>
+      <li>Dentro do <code>&lt;body&gt;</code>, adicione: <code>&lt;h1&gt;Olá, mundo!&lt;/h1&gt;</code></li>
+      <li>Salve (<kbd>Ctrl+S</kbd>) e clique em <strong>"Go Live"</strong> (canto inferior direito do VS Code).</li>
+      <li>Veja o resultado no navegador! 🎉</li>
+    </ol>
+    <div class="callout verde">
+      <strong>Dica:</strong> Sempre que salvar o arquivo, o Live Server atualiza o navegador automaticamente.
+    </div>
+  </div>
+
+  <!-- TAREFA DE CASA -->
+  <div class="card">
+    <h2>📝 Para a Próxima Aula</h2>
+    <ul>
+      <li>Deixe o <code>index.html</code> criado e abrindo no navegador sem erros.</li>
+      <li>Explore o VS Code: veja os atalhos <kbd>Ctrl+/</kbd> (comentário) e <kbd>Alt+↑/↓</kbd> (mover linha).</li>
+      <li>Curiosidade: inspecione qualquer site com <kbd>F12</kbd> e veja o HTML dele!</li>
+    </ul>
+  </div>
+
+  <div class="nav-aulas">
+    <a href="index.html">← Plano de Aulas</a>
+    <a class="proximo" href="aula2.html">Aula 2 →</a>
+  </div>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plano de Aulas — Página de Apresentação Pessoal em HTML</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #2d3748; line-height: 1.7; }
+
+    header {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+    header h1 { font-size: 2.2em; margin-bottom: 10px; }
+    header p  { font-size: 1.1em; opacity: .88; }
+    header .badge {
+      display: inline-block;
+      margin-top: 18px;
+      background: rgba(255,255,255,.2);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: .9em;
+    }
+
+    main { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+
+    .resumo {
+      background: white;
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-bottom: 36px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    .resumo h2 { color: #2c3e50; margin-bottom: 14px; font-size: 1.3em; }
+    .resumo ul { padding-left: 20px; }
+    .resumo li { margin-bottom: 6px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-bottom: 40px; }
+
+    .aula-card {
+      background: white;
+      border-radius: 10px;
+      padding: 26px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+      border-top: 4px solid #3498db;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .aula-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.13); }
+    .aula-card .numero { font-size: .85em; color: #3498db; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    .aula-card h3 { font-size: 1.1em; margin: 8px 0 12px; color: #2c3e50; }
+    .aula-card .tempo { font-size: .85em; color: #718096; margin-bottom: 14px; }
+    .aula-card ul { padding-left: 18px; font-size: .93em; }
+    .aula-card li { margin-bottom: 4px; }
+    .aula-card a.btn {
+      display: inline-block;
+      margin-top: 18px;
+      background: #3498db;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: .9em;
+      font-weight: 600;
+    }
+    .aula-card a.btn:hover { background: #2980b9; }
+
+    .cores { display: flex; gap: 8px; margin-top: 10px; }
+    .cor { width: 14px; height: 14px; border-radius: 50%; }
+
+    footer {
+      background: #2c3e50;
+      color: #a0aec0;
+      text-align: center;
+      padding: 24px;
+      font-size: .9em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🖥️ Página de Apresentação Pessoal em HTML</h1>
+  <p>Plano de Aulas — Desenvolvimento Web para Iniciantes</p>
+  <div class="badge">⏱ 4 Aulas · 50 minutos cada · Nível: Iniciante</div>
+</header>
+
+<main>
+
+  <section class="resumo">
+    <h2>📋 Visão Geral do Curso</h2>
+    <p>Neste curso prático você vai criar do zero uma <strong>Página de Apresentação Pessoal (Portfólio)</strong> usando HTML e CSS. Ao final das 4 aulas você terá um site real com cabeçalho, menu de navegação, seção "Sobre Mim", lista de habilidades, formulário de contato e rodapé — tudo estilizado com CSS.</p>
+    <br />
+    <ul>
+      <li>✅ <strong>Pré-requisito:</strong> Nenhum — basta ter VS Code e um navegador instalados.</li>
+      <li>✅ <strong>Material:</strong> Guia em PDF + exemplos de código em cada aula.</li>
+      <li>✅ <strong>Resultado final:</strong> Portfólio publicável online.</li>
+    </ul>
+  </section>
+
+  <div class="grid">
+
+    <div class="aula-card">
+      <div class="numero">Aula 1</div>
+      <h3>Introdução ao HTML e Estrutura Base</h3>
+      <div class="tempo">⏱ 50 minutos</div>
+      <ul>
+        <li>O que é HTML? (10 min)</li>
+        <li>Ferramentas: VS Code e navegador (5 min)</li>
+        <li>Estrutura base: DOCTYPE, html, head, body (20 min)</li>
+        <li>🖊 Prática: criar <code>index.html</code> e abrir no navegador (15 min)</li>
+      </ul>
+      <a class="btn" href="aula1.html">Ver Aula →</a>
+    </div>
+
+    <div class="aula-card">
+      <div class="numero">Aula 2</div>
+      <h3>Cabeçalho, Menu e Seção "Sobre Mim"</h3>
+      <div class="tempo">⏱ 50 minutos</div>
+      <ul>
+        <li>Revisão rápida (5 min)</li>
+        <li>Tags: header, nav, ul, li, a (15 min)</li>
+        <li>🖊 Prática: cabeçalho e menu (10 min)</li>
+        <li>Tags: section, id, img, alt (10 min)</li>
+        <li>🖊 Prática: seção "Sobre Mim" (10 min)</li>
+      </ul>
+      <a class="btn" href="aula2.html">Ver Aula →</a>
+    </div>
+
+    <div class="aula-card">
+      <div class="numero">Aula 3</div>
+      <h3>Habilidades, Formulário e Rodapé</h3>
+      <div class="tempo">⏱ 50 minutos</div>
+      <ul>
+        <li>Revisão rápida (5 min)</li>
+        <li>Seção de Habilidades com listas (10 min)</li>
+        <li>Tags: form, label, input, textarea, button (15 min)</li>
+        <li>🖊 Prática: formulário de contato (10 min)</li>
+        <li>Footer e HTML completo (10 min)</li>
+      </ul>
+      <a class="btn" href="aula3.html">Ver Aula →</a>
+    </div>
+
+    <div class="aula-card">
+      <div class="numero">Aula 4</div>
+      <h3>Estilização com CSS</h3>
+      <div class="tempo">⏱ 50 minutos</div>
+      <ul>
+        <li>Revisão do HTML completo (5 min)</li>
+        <li>O que é CSS? Seletores e propriedades (10 min)</li>
+        <li>🖊 Estilizar header e nav (10 min)</li>
+        <li>🖊 Estilizar seções e formulário (15 min)</li>
+        <li>🖊 Personalização final: cores e foto (10 min)</li>
+      </ul>
+      <a class="btn" href="aula4.html">Ver Aula →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>Material baseado no guia <em>"Crie sua Página de Apresentação Pessoal em HTML"</em> · 2026</p>
+</footer>
+
+</body>
+</html>
