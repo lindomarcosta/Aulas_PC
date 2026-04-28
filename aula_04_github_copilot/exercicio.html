@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 04 – GitHub Copilot: Exercício</title>
+    <style>
+      /* TODO: Use o GitHub Copilot para sugerir estilos para esta página!
+         Dica: posicione o cursor após esta linha e espere as sugestões do Copilot. */
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+      }
+      header {
+        background: linear-gradient(135deg, #24292e, #0366d6);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      header h1 { font-size: 2rem; margin-bottom: 8px; }
+      header p { color: #cdd3dc; }
+      main {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .secao {
+        background: white;
+        border-radius: 8px;
+        padding: 30px;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      .secao h2 {
+        color: #0366d6;
+        border-bottom: 2px solid #0366d6;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+      }
+      .instrucao {
+        background: #f1f8ff;
+        border-left: 4px solid #0366d6;
+        padding: 12px 16px;
+        border-radius: 0 4px 4px 0;
+        margin-bottom: 16px;
+        font-style: italic;
+        color: #586069;
+      }
+      button {
+        background-color: #0366d6;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin: 4px;
+      }
+      button:hover { background-color: #0256b9; }
+      input[type="text"] {
+        padding: 8px 12px;
+        border: 1px solid #d1d5da;
+        border-radius: 4px;
+        font-size: 1rem;
+        margin: 4px;
+        width: 220px;
+      }
+      .resultado {
+        margin-top: 12px;
+        padding: 12px 16px;
+        background: #f1f8ff;
+        border-left: 4px solid #0366d6;
+        border-radius: 4px;
+        min-height: 40px;
+      }
+      footer {
+        background-color: #24292e;
+        color: #6a737d;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>🤖 Aula 04 – GitHub Copilot</h1>
+      <p>Use o Copilot para completar os exercícios abaixo</p>
+    </header>
+
+    <main>
+
+      <!-- EXERCÍCIO 1 -->
+      <section class="secao">
+        <h2>Exercício 1: Conversor de Temperatura</h2>
+        <p class="instrucao">
+          💡 Abra o arquivo exercicio.js e use o GitHub Copilot para completar a
+          função <code>converterTemperatura()</code> com base no comentário.
+        </p>
+        <input type="text" id="temperatura" placeholder="Ex: 100" />
+        <select id="unidade" style="padding:8px; border:1px solid #d1d5da; border-radius:4px; font-size:1rem;">
+          <option value="celsius">Celsius → Fahrenheit</option>
+          <option value="fahrenheit">Fahrenheit → Celsius</option>
+        </select>
+        <br /><br />
+        <button onclick="converterTemperatura()">Converter</button>
+        <div class="resultado" id="resultado-temperatura">O resultado aparecerá aqui</div>
+      </section>
+
+      <!-- EXERCÍCIO 2 -->
+      <section class="secao">
+        <h2>Exercício 2: Verificador de Palíndromo</h2>
+        <p class="instrucao">
+          💡 Use o Copilot para completar a função <code>verificarPalindromo()</code>.
+          Um palíndromo é uma palavra que se lê igual de frente para trás.
+          Exemplos: "arara", "racecar", "civic".
+        </p>
+        <input type="text" id="palavra" placeholder="Ex: arara" />
+        <button onclick="verificarPalindromo()">Verificar</button>
+        <div class="resultado" id="resultado-palindromo">Digite uma palavra e clique em Verificar</div>
+      </section>
+
+      <!-- EXERCÍCIO 3 -->
+      <section class="secao">
+        <h2>Exercício 3: Gerador de Cores Aleatórias</h2>
+        <p class="instrucao">
+          💡 Use o Copilot para completar a função <code>gerarCorAleatoria()</code>
+          que gera uma cor hexadecimal aleatória e aplica como cor de fundo.
+        </p>
+        <button onclick="gerarCorAleatoria()">Gerar Cor Aleatória</button>
+        <div class="resultado" id="resultado-cor">Clique para gerar uma cor aleatória</div>
+      </section>
+
+      <!-- EXERCÍCIO 4 -->
+      <section class="secao">
+        <h2>Exercício 4: Contador de Palavras</h2>
+        <p class="instrucao">
+          💡 Use o Copilot para completar a função <code>contarPalavras()</code>
+          que conta quantas palavras há em um texto.
+        </p>
+        <textarea
+          id="texto-palavras"
+          rows="4"
+          style="width:100%; padding:8px; border:1px solid #d1d5da; border-radius:4px; font-size:1rem; resize:vertical;"
+          placeholder="Digite um texto aqui..."
+        >O GitHub Copilot é uma ferramenta incrível que ajuda programadores a escrever código mais rápido.</textarea>
+        <br /><br />
+        <button onclick="contarPalavras()">Contar Palavras</button>
+        <div class="resultado" id="resultado-palavras">Clique para contar as palavras</div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2024 – Aula 04: GitHub Copilot</p>
+    </footer>
+
+    <!-- Arquivo JavaScript com os exercícios para completar com o Copilot -->
+    <script src="exercicio.js"></script>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 03 – JavaScript</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+      }
+      header {
+        background-color: #f39c12;
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+      }
+      header h1 { font-size: 2rem; margin-bottom: 8px; }
+      main {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .secao {
+        background-color: white;
+        border-radius: 8px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      .secao h2 {
+        color: #e67e22;
+        border-bottom: 2px solid #f39c12;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+      }
+      button {
+        background-color: #f39c12;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin: 4px;
+        transition: background-color 0.2s;
+      }
+      button:hover { background-color: #e67e22; }
+      input[type="number"], input[type="text"] {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        width: 100px;
+        margin: 4px;
+      }
+      select {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        margin: 4px;
+      }
+      .resultado {
+        margin-top: 16px;
+        padding: 12px 16px;
+        background-color: #fef9e7;
+        border-left: 4px solid #f39c12;
+        border-radius: 4px;
+        font-weight: bold;
+        min-height: 44px;
+      }
+      .contador-numero {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #f39c12;
+        display: block;
+        text-align: center;
+        margin: 16px 0;
+      }
+      .botoes-contador {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+      }
+      #lista-tarefas {
+        list-style: none;
+        margin: 12px 0;
+      }
+      #lista-tarefas li {
+        padding: 8px 12px;
+        background-color: #fef9e7;
+        border-radius: 4px;
+        margin-bottom: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #lista-tarefas li .remover {
+        background-color: #e74c3c;
+        font-size: 0.75rem;
+        padding: 4px 8px;
+      }
+      #lista-tarefas li .remover:hover { background-color: #c0392b; }
+      #campo-tarefa { width: 240px; }
+      .cores-demo { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+      .cor-btn { padding: 10px 16px; border-radius: 6px; font-weight: bold; }
+      footer {
+        background-color: #2c3e50;
+        color: #bdc3c7;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Aula 03 – JavaScript</h1>
+      <p>Exemplos interativos de JavaScript</p>
+    </header>
+
+    <main>
+
+      <!-- EXEMPLO 1: CALCULADORA -->
+      <section class="secao">
+        <h2>🧮 Calculadora</h2>
+        <p>Insira dois números e escolha uma operação:</p>
+        <br />
+        <input type="number" id="num1" placeholder="Número 1" value="10" />
+        <select id="operacao">
+          <option value="soma">+ Soma</option>
+          <option value="subtracao">− Subtração</option>
+          <option value="multiplicacao">× Multiplicação</option>
+          <option value="divisao">÷ Divisão</option>
+        </select>
+        <input type="number" id="num2" placeholder="Número 2" value="5" />
+        <br /><br />
+        <button onclick="calcular()">Calcular</button>
+        <div class="resultado" id="resultado-calc">O resultado aparecerá aqui</div>
+      </section>
+
+      <!-- EXEMPLO 2: CONTADOR -->
+      <section class="secao">
+        <h2>🔢 Contador</h2>
+        <p>Clique nos botões para incrementar, decrementar ou zerar o contador:</p>
+        <span class="contador-numero" id="numero-contador">0</span>
+        <div class="botoes-contador">
+          <button onclick="decrementar()">− Decrementar</button>
+          <button onclick="zerar()" style="background-color:#7f8c8d;">Zerar</button>
+          <button onclick="incrementar()">+ Incrementar</button>
+        </div>
+      </section>
+
+      <!-- EXEMPLO 3: LISTA DE TAREFAS -->
+      <section class="secao">
+        <h2>📝 Lista de Tarefas</h2>
+        <p>Adicione e remova tarefas:</p>
+        <br />
+        <input type="text" id="campo-tarefa" placeholder="Nova tarefa..." />
+        <button onclick="adicionarTarefa()">Adicionar</button>
+        <ul id="lista-tarefas">
+          <li>
+            <span>Aprender HTML</span>
+            <button class="remover" onclick="removerTarefa(this)">✕</button>
+          </li>
+          <li>
+            <span>Aprender CSS</span>
+            <button class="remover" onclick="removerTarefa(this)">✕</button>
+          </li>
+        </ul>
+        <div class="resultado" id="total-tarefas">Total de tarefas: 2</div>
+      </section>
+
+      <!-- EXEMPLO 4: MUDANÇA DE COR -->
+      <section class="secao">
+        <h2>🎨 Mudança de Cor de Fundo</h2>
+        <p>Clique em uma cor para mudar o fundo da página:</p>
+        <div class="cores-demo">
+          <button class="cor-btn" style="background:#3498db;" onclick="mudarCor('#ebf5fb')">Azul</button>
+          <button class="cor-btn" style="background:#27ae60; color:white;" onclick="mudarCor('#eafaf1')">Verde</button>
+          <button class="cor-btn" style="background:#e74c3c; color:white;" onclick="mudarCor('#fdedec')">Vermelho</button>
+          <button class="cor-btn" style="background:#f39c12; color:white;" onclick="mudarCor('#fef9e7')">Amarelo</button>
+          <button class="cor-btn" style="background:#9b59b6; color:white;" onclick="mudarCor('#f5eef8')">Roxo</button>
+          <button class="cor-btn" style="background:#ecf0f1; border:1px solid #ccc;" onclick="mudarCor('#f5f5f5')">Padrão</button>
+        </div>
+      </section>
+
+      <!-- EXEMPLO 5: MENSAGEM PERSONALIZADA -->
+      <section class="secao">
+        <h2>👋 Saudação Personalizada</h2>
+        <p>Digite seu nome para receber uma saudação:</p>
+        <br />
+        <input type="text" id="campo-nome" placeholder="Seu nome" style="width:200px;" />
+        <button onclick="saudar()">Saudar!</button>
+        <div class="resultado" id="resultado-saudacao">A saudação aparecerá aqui</div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2024 – Aula 03 de JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

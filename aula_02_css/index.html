@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 02 – CSS</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+      <h1 class="titulo-principal">Aula 02 – CSS</h1>
+      <p class="subtitulo">Estilizando sua página com CSS</p>
+    </header>
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="navegacao">
+      <a href="#cores" class="link-nav">Cores</a>
+      <a href="#tipografia" class="link-nav">Tipografia</a>
+      <a href="#caixas" class="link-nav">Caixas</a>
+      <a href="#flexbox" class="link-nav">Flexbox</a>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+
+      <!-- SEÇÃO CORES -->
+      <section id="cores" class="secao">
+        <h2 class="titulo-secao">Cores</h2>
+        <p class="texto">Exemplos de diferentes formas de definir cores no CSS:</p>
+        <div class="demonstracao-cores">
+          <div class="caixa-cor cor-nome">Nome da Cor<br /><code>color: white</code></div>
+          <div class="caixa-cor cor-hex">Hexadecimal<br /><code>#e74c3c</code></div>
+          <div class="caixa-cor cor-rgb">RGB<br /><code>rgb(46, 204, 113)</code></div>
+          <div class="caixa-cor cor-hsl">HSL<br /><code>hsl(207, 90%, 54%)</code></div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO TIPOGRAFIA -->
+      <section id="tipografia" class="secao">
+        <h2 class="titulo-secao">Tipografia</h2>
+        <p class="texto-normal">Texto normal – 16px, peso 400</p>
+        <p class="texto-grande">Texto grande – 24px</p>
+        <p class="texto-negrito">Texto em negrito – font-weight: bold</p>
+        <p class="texto-italico">Texto em itálico – font-style: italic</p>
+        <p class="texto-centralizado">Texto centralizado – text-align: center</p>
+        <p class="texto-destaque">Texto com destaque – background-color amarelo</p>
+      </section>
+
+      <!-- SEÇÃO CAIXAS (BOX MODEL) -->
+      <section id="caixas" class="secao">
+        <h2 class="titulo-secao">Box Model</h2>
+        <p class="texto">O Box Model mostra como o espaçamento funciona:</p>
+        <div class="caixa-modelo">
+          <p>Esta caixa tem: margin, border, padding e conteúdo</p>
+          <p><code>margin: 20px | border: 3px solid | padding: 20px</code></p>
+        </div>
+        <div class="caixa-arredondada">
+          <p>Caixa com bordas arredondadas: <code>border-radius: 12px</code></p>
+        </div>
+      </section>
+
+      <!-- SEÇÃO FLEXBOX -->
+      <section id="flexbox" class="secao">
+        <h2 class="titulo-secao">Flexbox</h2>
+        <p class="texto">Flexbox facilita criar layouts modernos:</p>
+        <div class="container-flex">
+          <div class="item-flex">Item 1</div>
+          <div class="item-flex">Item 2</div>
+          <div class="item-flex">Item 3</div>
+          <div class="item-flex">Item 4</div>
+        </div>
+
+        <!-- CARTÕES -->
+        <h3>Cartões com Flexbox</h3>
+        <div class="container-cartoes">
+          <div class="cartao">
+            <h4>HTML</h4>
+            <p>Estrutura da página web</p>
+          </div>
+          <div class="cartao">
+            <h4>CSS</h4>
+            <p>Aparência e estilo da página</p>
+          </div>
+          <div class="cartao">
+            <h4>JavaScript</h4>
+            <p>Interatividade da página</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+      <p>&copy; 2024 – Aula 02 de CSS</p>
+    </footer>
+
+  </body>
+</html>
